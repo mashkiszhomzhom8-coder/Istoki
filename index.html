@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Истоки — идеи и мастер-классы по мотивам культур народов России" />
+  <title>Истоки — культурный DIY</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Истоки, на главную"><img class="brand-logo" src="assets/square.png" alt="" /><span>ИСТОКИ</span></a>
+    <nav aria-label="Основная навигация">
+      <a class="active" href="#home">Главная</a>
+      <a href="#create">Создать своё</a>
+      <a href="#favorites">Избранное <span class="favorite-count"></span></a>
+      <a href="#profile">Личный кабинет</a>
+    </nav>
+    <button class="header-search" type="button" data-scroll-catalog aria-label="Перейти к поиску">⌕ <span>Поиск туториалов</span></button>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Включить тёмную тему" title="Сменить тему"><span aria-hidden="true">◐</span></button>
+    <button id="header-avatar" class="profile-dot" type="button" data-route="profile" aria-label="Открыть личный кабинет">А</button>
+  </header>
+
+  <main id="home-view" class="view">
+    <section class="hero">
+      <img class="hero-flourish" src="assets/title-flourish.png" alt="" />
+      <div class="hero__decor hero__decor--left" aria-hidden="true">
+        <img class="decor-item decor-shirt" src="assets/shirt.webp" alt="" />
+        <img class="decor-item decor-pitcher" src="assets/pitcher.webp" alt="" />
+        <img class="decor-item decor-bag" src="assets/bag.webp" alt="" />
+        <img class="decor-item decor-flowers-left" src="assets/flowers_left.webp" alt="" />
+        <img class="decor-item decor-note-history" src="assets/note_history.webp" alt="" />
+      </div>
+      <div class="hero-copy">
+        <div class="hero__ornament" aria-hidden="true">⌁ ✦ ⌁</div>
+        <p class="eyebrow">Культурный DIY</p>
+        <h1><span>Сохраняй</span><span>традиции,</span><em>создавая новое</em></h1>
+        <p class="hero-description">Идеи, мастер-классы и вдохновение<br />из культур народов России<br />для твоих творческих проектов</p>
+        <button class="button button-light hero-button" type="button" data-scroll-catalog><span>✦</span> Найти идею <span>✦</span></button>
+      </div>
+      <div class="hero__decor hero__decor--right" aria-hidden="true">
+        <img class="decor-item decor-photo" src="assets/mountain_photo.webp" alt="" />
+        <img class="decor-item decor-jewelry" src="assets/jewelry.webp" alt="" />
+        <img class="decor-item decor-flowers-right" src="assets/flowers_right.webp" alt="" />
+        <img class="decor-item decor-vase" src="assets/vase.webp" alt="" />
+        <img class="decor-item decor-note-traditions" src="assets/note_traditions.webp" alt="" />
+      </div>
+    </section>
+
+    <section class="categories section-shell" aria-labelledby="categories-title">
+      <div class="section-heading">
+        <div><p class="kicker">Откройте для себя</p><h2 id="categories-title">Популярные разделы</h2></div>
+        <button class="text-link" type="button" data-scroll-catalog>Смотреть все <span>→</span></button>
+      </div>
+      <div class="category-grid">
+        <button class="category-card" data-category="Для дома"><img src="assets/category-room.jpeg" alt="Интерьер в народном стиле" /><span class="category-overlay"><strong>Для комнаты</strong><small>Уют с историей</small><b>↗</b></span></button>
+        <button class="category-card" data-category="Русский север"><img src="assets/category-north.jpeg" alt="Пейзаж Русского севера" /><span class="category-overlay"><strong>Русский север</strong><small>Сила природы и людей</small><b>↗</b></span></button>
+        <button class="category-card" data-category="Вышивки"><img src="assets/category-embroidery.jpeg" alt="Вышивка с традиционным орнаментом" /><span class="category-overlay"><strong>Вышивки</strong><small>Узоры, которые говорят</small><b>↗</b></span></button>
+        <button class="category-card" data-category="Глиняные изделия"><img src="assets/category-clay.jpeg" alt="Глиняные изделия" /><span class="category-overlay"><strong>Глиняные изделия</strong><small>Тепло земли в каждой форме</small><b>↗</b></span></button>
+      </div>
+    </section>
+
+    <section id="catalog" class="catalog section-shell" aria-labelledby="catalog-title">
+      <img class="catalog-ornament" src="assets/popular-ornament.png" alt="" />
+      <div class="catalog-intro"><h2 id="catalog-title">Что хотите создать?</h2><p>Выберите настроение, технику или просто начните с того, что хочется сделать сегодня.</p></div>
+      <div class="search-row"><label class="search-box"><span>⌕</span><input id="tutorial-search" type="search" placeholder="Поиск по туториалам..." autocomplete="off" /></label><button id="filters-button" class="filter-button" type="button">☷ <span>Фильтры</span></button></div>
+      <div id="filter-chips" class="filter-chips" aria-label="Фильтры туториалов">
+        <button class="chip active" data-filter="Все">Все</button><button class="chip" data-filter="До 30 минут">До 30 минут</button><button class="chip" data-filter="Для дома">Для дома</button><button class="chip" data-filter="Аксессуары">Аксессуары</button><button class="chip" data-filter="Одежда">Одежда</button><button class="chip" data-filter="Подарки">Подарки</button>
+      </div>
+      <div id="tutorial-grid" class="tutorial-grid" aria-live="polite"></div>
+      <p id="empty-state" class="empty-state" hidden>Ничего не нашли. Попробуйте другой запрос или раздел.</p>
+    </section>
+
+    <div class="stitched-divider"><span></span><img src="assets/square.png" alt="" /><span></span></div>
+  </main>
+
+  <main id="detail-view" class="view secondary-view" hidden></main>
+  <main id="favorites-view" class="view secondary-view" hidden></main>
+  <main id="profile-view" class="view secondary-view" hidden></main>
+  <main id="create-view" class="view secondary-view" hidden>
+    <section class="simple-page section-shell"><p class="kicker">Ваша мастерская</p><h1>Добавить туториал</h1><p class="lead">Поделитесь идеей — так традиционные техники становятся частью повседневной жизни.</p><form id="create-form" class="create-form create-form-wide"><div class="form-section"><h2>Основная информация</h2><div class="form-grid"><label class="form-wide">Название туториала<input name="title" required placeholder="Например, роспись деревянной игрушки" /></label><label>Категория<select name="category"><option>Для дома</option><option>Аксессуары</option><option>Одежда</option><option>Подарки</option></select></label><label>Сложность выполнения<select name="difficulty"><option>Низкая</option><option>Средняя</option><option>Высокая</option></select></label><label>Исторический регион мотива<input name="region" placeholder="Например, Русский Север" /></label><label>Длительность выполнения<input name="duration" placeholder="Например, 40 минут" /></label><label>Бюджет<input name="budget" placeholder="Например, до 500 ₽" /></label><label>Ссылка на видео<input name="video" type="url" placeholder="YouTube, VK Видео, Дзен или Kinescope" /></label><label class="form-wide cover-field">Обложка туториала<input id="cover-input" name="cover" type="file" accept="image/*" /><span>Загрузите фотографию с устройства</span><img id="cover-preview" alt="Предпросмотр обложки" hidden /><span class="upload-actions"><button class="upload-action" type="button" data-replace="cover-input">Заменить</button><button class="upload-action remove" type="button" data-remove-upload="cover">Удалить</button></span></label></div></div><div class="form-section"><h2>Содержание мастер-класса</h2><div class="form-grid"><label class="form-wide">Короткое описание<textarea name="description" required placeholder="Расскажите, чему научится автор..." rows="4"></textarea></label><label class="form-wide">Описание исторического первоисточника<textarea name="history" placeholder="Этнографическая справка: источник мотива, его значение и регион..." rows="5"></textarea></label><label class="form-wide">Материалы<textarea name="materials" placeholder="Перечислите материалы и инструменты, каждый с новой строки" rows="4"></textarea></label><label class="form-wide">Пошаговая инструкция<textarea name="steps" placeholder="Опишите шаги выполнения: 1. ... 2. ... 3. ..." rows="7"></textarea></label></div></div><button class="button button-wine">Сохранить черновик <span>→</span></button></form></section>
+  </main>
+  <section class="closing" aria-label="О проекте">
+    <img class="closing-board" src="assets/board_last.png" alt="" />
+    <img class="closing-flower closing-flower-left" src="assets/flowers_left.webp" alt="" />
+    <img class="closing-flower closing-flower-right" src="assets/flowers_right.webp" alt="" />
+    <h2>Об Истоках</h2>
+    <div class="closing-content"><p>Платформа объединяет мастеров, этнографов и энтузиастов ручного труда. Мы переосмысляем аутентичные орнаменты и традиционные ремёсла для современного быта.</p></div>
+    <button type="button" class="button button-light closing-button" data-route="profile">Узнать больше</button>
+    <div class="closing-meta">
+      <div class="closing-divider" aria-hidden="true"><span>✦</span></div>
+      <div class="closing-bottom">
+        <p class="closing-statement">© 2026 Платформа «Истоки». Бережное отношение к традициям и культурному наследию.<span>Сделано с уважением к народным ремёслам ✦</span></p>
+      </div>
+    </div>
+  </section>
+  <div id="filters-modal" class="modal" hidden aria-labelledby="filters-title" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-close-filters></div>
+    <form id="advanced-filters-form" class="filters-dialog">
+      <div class="modal-heading"><div><p class="kicker">Настройте выдачу</p><h2 id="filters-title">Фильтры</h2></div><button class="modal-close" type="button" data-close-filters aria-label="Закрыть">×</button></div>
+      <fieldset><legend>Сложность</legend><label><input name="level" type="checkbox" value="Низкая сложность" /> Низкая</label><label><input name="level" type="checkbox" value="Средняя сложность" /> Средняя</label><label><input name="level" type="checkbox" value="Высокая сложность" /> Высокая</label></fieldset>
+      <fieldset><legend>Время</legend><label><input name="time" type="radio" value="all" checked /> Любое</label><label><input name="time" type="radio" value="quick" /> До 30 минут</label><label><input name="time" type="radio" value="hour" /> До 1 часа</label></fieldset>
+      <fieldset><legend>Бюджет</legend><label><input name="budget" type="radio" value="all" checked /> Любой</label><label><input name="budget" type="radio" value="до 500 ₽" /> До 500 ₽</label><label><input name="budget" type="radio" value="500–1000 ₽" /> 500–1000 ₽</label></fieldset>
+      <div class="modal-actions"><button id="reset-filters" class="text-link" type="button">Сбросить все</button><button class="button button-wine" type="submit">Показать идеи <span>→</span></button></div>
+    </form>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
